@@ -1,38 +1,143 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  /* overflow: hidden; */
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  /* overflow: hidden; */
+}
+
+.hidden {
+  display: none;
+}
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-size: 35pt;
+  margin-bottom: 5px;
+}
+
+
+.difficulty > label , .duration > label , .theme > label {
+  padding: 0 5px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game-setup {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+
+.start-btn {
+  background: none;
+  /* outline: none; */
+  padding: 5px 10px;
+  background-color: lightcoral;
+  border: none;
+  /* width: 10%; */
+  margin-top: 10px;
+  color: rgb(91, 20, 112);
+  justify-self: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.start-btn:hover {
+  background-color: rgb(230, 32, 82);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100px;
+  /* text-align: center; */
+  background-color: lightgray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p.timer, p.lives {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  /* margin-bottom: 100px; */
+  min-height: 420px;
+}
+
+.number-container > p {
+  border: 1px solid #000;
+  border-radius: 20%;
+  width: 40px;
+  height: 40px;
+  font-size: 20pt;
+  margin-left: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.board {
+  padding-top: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 360px;
+  height: 360px;
+}
+
+.tile {
+  border: 1px solid #000;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 0px;
+  vertical-align: middle;
+  font-size: 20pt;
+}
+
+.selected {
+  background-color: lightblue;
+}
+
+.incorrect {
+  color: red;
+}
+
+.right-border {
+  border-right: 4px solid #000;
+}
+
+.bottom-border {
+  border-bottom: 4px solid #000;
+}
+
+.number-container:hover, .tile:hover {
+  cursor: pointer;
 }
