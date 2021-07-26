@@ -84,7 +84,7 @@ function App() {
     // set timer to update every second
     timer = setInterval(() => {
       timeRemaining--
-      // if(timeRemaining === 0) endGame()
+      if(timeRemaining === 0) endGame()
       qs('.timer').textContent = timeConversion(timeRemaining)
     }, 1000)
   }
@@ -241,7 +241,43 @@ function App() {
       outcome = 1
     }
 
-    setTimeout(() => outcome ? swal('You won, Play Again') : swal('You lost, Play Again'), 500)
+    setTimeout(() => outcome ? swal('You won!', 'would you like to play again?', 'success'
+                               , {
+                                 buttons: {
+                                   yes: 'Yes',
+                                   no: 'No',
+                                   cancel: 'Cancel'
+                                 }
+                               })
+                               .then(value => {
+                                 switch(value) {
+                                   case 'Yes':
+                                     startGame();
+                                     break;
+                                   case 'No':
+                                     break;
+                                   default:
+                                     break;
+                                 }
+                               }) : swal('You lost!', 'would you like to play again?', 'error'
+                               , {
+                                 buttons: {
+                                  yes: 'Yes',
+                                  no: 'No',
+                                  cancel: 'cancel'
+                                 }
+                               })
+                               .then(value => {
+                                  switch(value) {
+                                    case 'Yes':
+                                      startGame();
+                                      break;
+                                    case 'No':
+                                      break;
+                                    default:
+                                      break;
+                                  }
+                               }), 500)
   }
 
   const checkCorrect = (tile) => {
